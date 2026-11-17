@@ -9,7 +9,6 @@ import {
   Bell,
   ArrowRight,
   Trophy,
-  Star,
 } from "lucide-react";
 
 export const revalidate = 60;
@@ -49,7 +48,6 @@ export default async function HomePage() {
 
       {/* ══ HERO ══ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background orbs */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1565c0]/15 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-[#0d47a1]/20 rounded-full blur-3xl" />
@@ -57,26 +55,23 @@ export default async function HomePage() {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          {/* School logo circle */}
+          {/* Logo */}
           <div className="mb-8 flex justify-center">
-            <div className="relative">
-              <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#1565c0] to-[#061a4a] border-2 border-gold-500/50 flex items-center justify-center glow-blue animate-float">
-                <span className="font-display font-black text-3xl text-white">
-                  JC
-                </span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center glow-gold">
-                <Star className="w-4 h-4 text-[#030e2e] fill-current" />
+            <div className="relative animate-float">
+              <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-gold-500/50 glow-blue">
+                <img
+                  src="/logo.png"
+                  alt="JCSC 2K30"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
 
-          {/* School name */}
           <p className="text-gold-400/80 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             জামালপুর কালেক্টরেট স্কুল এন্ড কলেজ
           </p>
 
-          {/* Main title */}
           <h1 className="font-display font-black text-7xl sm:text-8xl md:text-9xl text-white mb-4 leading-none tracking-tight">
             JCSC
             <span className="text-gold-shimmer"> 2K30</span>
@@ -86,7 +81,6 @@ export default async function HomePage() {
             SSC Batch 2030 &mdash; একসাথে ছিলাম, একসাথে থাকব
           </p>
 
-          {/* Stats */}
           <div className="flex flex-wrap justify-center gap-6 mb-12">
             {[
               { n: "34", label: "সদস্য" },
@@ -105,7 +99,6 @@ export default async function HomePage() {
             ))}
           </div>
 
-          {/* CTAs */}
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/members"
@@ -124,7 +117,6 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/20">
           <div className="w-px h-12 bg-gradient-to-b from-transparent to-white/20" />
           <span className="text-[10px] tracking-widest uppercase">scroll</span>
@@ -148,15 +140,12 @@ export default async function HomePage() {
               সব দেখো <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {notices.map((n) => (
               <div
                 key={n.id}
                 className={`glass-card p-5 rounded-xl border-l-4 ${
-                  n.is_important
-                    ? "border-gold-500"
-                    : "border-[#1565c0]"
+                  n.is_important ? "border-gold-500" : "border-[#1565c0]"
                 }`}
               >
                 {n.is_important && (
@@ -167,9 +156,7 @@ export default async function HomePage() {
                 <h3 className="font-semibold text-white text-sm mb-2 leading-snug">
                   {n.title}
                 </h3>
-                <p className="text-xs text-white/40 line-clamp-2">
-                  {n.content}
-                </p>
+                <p className="text-xs text-white/40 line-clamp-2">{n.content}</p>
                 <p className="text-[11px] text-white/25 mt-3">
                   {new Date(n.created_at).toLocaleDateString("bn-BD")}
                 </p>
@@ -221,7 +208,6 @@ export default async function HomePage() {
               সব দেখো <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
-
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {gallery.map((g, i) => (
               <div
@@ -242,14 +228,10 @@ export default async function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-3 left-3 right-3">
                     {g.caption && (
-                      <p className="text-white text-xs font-medium">
-                        {g.caption}
-                      </p>
+                      <p className="text-white text-xs font-medium">{g.caption}</p>
                     )}
                     {g.event_name && (
-                      <p className="text-gold-400 text-[10px] mt-0.5">
-                        {g.event_name}
-                      </p>
+                      <p className="text-gold-400 text-[10px] mt-0.5">{g.event_name}</p>
                     )}
                   </div>
                 </div>
