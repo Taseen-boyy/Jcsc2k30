@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GraduationCap, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,8 +9,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1565c0] to-[#0a2d6e] flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-gold-400" />
+              <div className="w-10 h-10 rounded-full overflow-hidden">
+                <img src="/logo.png" alt="JCSC 2K30" className="w-full h-full object-cover" />
               </div>
               <div>
                 <div className="font-display text-sm font-bold text-white">
@@ -75,4 +75,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-      }
+}
