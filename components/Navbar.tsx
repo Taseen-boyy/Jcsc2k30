@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { href: "/", label: "হোম" },
@@ -32,10 +33,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1565c0] to-[#0a2d6e] flex items-center justify-center glow-blue group-hover:scale-110 transition-transform">
-            <GraduationCap className="w-5 h-5 text-gold-400" />
+          <div className="w-11 h-11 rounded-full overflow-hidden group-hover:scale-110 transition-transform glow-blue">
+            <Image
+              src="/logo.png"
+              alt="JCSC 2K30"
+              width={44}
+              height={44}
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="leading-tight">
             <div className="font-display text-sm font-bold tracking-widest text-white">
@@ -47,7 +53,6 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <Link
@@ -64,7 +69,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-white/80 hover:text-white"
           onClick={() => setOpen(!open)}
@@ -73,7 +77,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-[#061a4a]/98 backdrop-blur-xl border-t border-white/5 px-4 py-4 flex flex-col gap-4">
           {links.map((l) => (
@@ -92,4 +95,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-}
+        }
